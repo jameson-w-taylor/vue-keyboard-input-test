@@ -2,7 +2,7 @@ import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'io.ionic.starter',
-  appName: 'long-press-issue',
+  appName: 'vue-keyboard-input-test',
   webDir: 'dist',
   bundledWebRuntime: false
 };

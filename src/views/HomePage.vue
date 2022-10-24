@@ -13,16 +13,23 @@
         </ion-toolbar>
       </ion-header>
     
-      <div id="container">
-        <strong>Ready to create an app?</strong>
-        <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-      </div>
+      <ion-list>
+        <ion-item>
+          <ion-label>Default input</ion-label>
+          <ion-input></ion-input>
+        </ion-item>
+      </ion-list>
+
+      <div style="height: 800px"></div>
+
+      <div>Bottom text</div>
     </ion-content>
   </ion-page>
 </template>
 
 <script lang="ts">
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonList, IonItem, IonLabel, IonInput } from '@ionic/vue';
+import { Keyboard } from '@capacitor/keyboard';
 import { defineComponent } from 'vue';
 
 export default defineComponent({
@@ -32,37 +39,28 @@ export default defineComponent({
     IonHeader,
     IonPage,
     IonTitle,
-    IonToolbar
+    IonToolbar,
+    IonList,
+    IonItem,
+    IonLabel,
+    IonInput
+  },
+  setup: () => {
+    Keyboard.addListener('keyboardWillShow', info => {
+      console.log('keyboard will show with height:', info.keyboardHeight);
+    });
+
+    Keyboard.addListener('keyboardDidShow', info => {
+      console.log('keyboard did show with height:', info.keyboardHeight);
+    });
+
+    Keyboard.addListener('keyboardWillHide', () => {
+      console.log('keyboard will hide');
+    });
+
+    Keyboard.addListener('keyboardDidHide', () => {
+      console.log('keyboard did hide');
+    });
   }
 });
 </script>
-
-<style scoped>
-#container {
-  text-align: center;
-  
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
-
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-  
-  color: #8c8c8c;
-  
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
-}
-</style>
