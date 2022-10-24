@@ -1,0 +1,7 @@
+{
+  "name": "long-press-issue",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}
