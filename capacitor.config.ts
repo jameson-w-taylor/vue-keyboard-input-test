@@ -4,7 +4,12 @@ const config: CapacitorConfig = {
   appId: 'io.ionic.starter',
   appName: 'vue-keyboard-input-test',
   webDir: 'dist',
-  bundledWebRuntime: false
+  bundledWebRuntime: false,
+  plugins: {
+    Keyboard: {
+      resizeOnFullScreen: true
+    }
+  }
 };
 
 export default config;
